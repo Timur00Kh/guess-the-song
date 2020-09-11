@@ -17,6 +17,7 @@
 <script>
     import Youtube from "../../components/Youtube.svelte";
     import Key from "../../components/Key.svelte";
+    import {shuffle} from "../../utils/shuffle";
 
     export let game, id;
     let blockVideo = false;
@@ -42,7 +43,7 @@
         })
         if (!tempSong) return
         if (tempSong.id !== song.id) {
-            song = tempSong
+            song = {...tempSong, answers: shuffle(tempSong.answers)}
             userAnswer = undefined
         }
         if (song.id && currentTime >= song.answer[0] && currentTime <= song.answer[1]) {
@@ -63,7 +64,7 @@
         <div class="row">
             <div class="col-12">
                 <div class="wrap">
-                    <!--{#if blockVideo}<div class="block"></div>{/if}-->
+                    {#if blockVideo}<div class="block"></div>{/if}
                     <div class="inner">
                         <Key key="{game.yt_id}">
                             <Youtube on:timeupdate={({detail}) => currentTime = detail}

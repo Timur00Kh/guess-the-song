@@ -45,6 +45,7 @@
 
 <p><strong>Try editing this file (src/routes/index.svelte) to test live reloading.</strong></p>
 
-<a href="/games/1">1</a>
-<a href="/games/2">2</a>
-<a href="/games/3">3</a>
+<a rel=prefetch href="game/1">1</a>
+<a rel=prefetch href="game/2">2</a>
+<a rel=prefetch href="game/3">3</a>
+<a rel=prefetch href="game/4">4</a>

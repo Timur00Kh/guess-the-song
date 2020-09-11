@@ -10,7 +10,7 @@
     "cy:run": "cypress run",
     "cy:open": "cypress open",
     "test": "run-p --race dev cy:run",
-    "publish": "gh-pages -d __sapper__/export"
+    "publish": "sapper export --basepath guess-the-song && gh-pages -d __sapper__/export/guess-the-song"
   },
   "dependencies": {
     "bootstrap": "^4.5.2",
