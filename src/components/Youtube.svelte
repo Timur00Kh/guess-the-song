@@ -10,7 +10,15 @@
     export let videoId;
     export let height = "390";
     export let width = "640";
+    export let goTo;
     let interval;
+
+    $: seek(goTo)
+    function seek(goTo) {
+        if (player && goTo && goTo > 0) {
+            player.seekTo(goTo, true)
+        }
+    }
 
 
     onMount(() => {

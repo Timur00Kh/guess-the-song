@@ -1,4 +1,5 @@
 import { v4 as uuidv4 } from 'uuid';
+import {bot, tg} from "../../server";
 
 const games = [
     {
@@ -182,6 +183,7 @@ export async function get(req, res, next) {
     if (game !== null) {
         res.setHeader('Content-Type', 'application/json');
         res.end(JSON.stringify(game));
+        // await tg.sendGame(276333210, 'FirstTest')
     } else {
         next();
     }

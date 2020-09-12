@@ -19,6 +19,7 @@
     "polka": "next",
     "sirv": "^1.0.0",
     "svelte-preprocess-sass": "^0.2.0",
+    "telegraf": "^3.38.0",
     "uuid": "^8.3.0"
   },
   "devDependencies": {

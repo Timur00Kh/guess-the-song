@@ -6,10 +6,12 @@
         // у нас есть доступ к параметру `slug`, потому что
         // файл называется [slug].html
         const {id} = page.params;
+        const {userId, score, inlineMessageId, chatId, messageId} = page.query;
 
         const res = await this.fetch(`game/${id}.json`);
         const data = await res.json();
-        return {game: data, id};
+        return {game: data, id,
+            userId, score, inlineMessageId, chatId, messageId};
     }
 </script>
 
@@ -20,11 +22,14 @@
     import {shuffle} from "../../utils/shuffle";
 
     export let game, id;
+    export let userId, inlineMessageId, chatId, messageId;
     let blockVideo = false;
     let song = {}
     let started = false
     let currentTime = 0
     let userAnswer
+    let score = 0
+    let goTo
 
     // $:onGameChange(game)
     //
@@ -33,6 +38,14 @@
     // }
 
     $:processGame(currentTime)
+
+    function onUserAnswer(answer) {
+        userAnswer = answer
+
+        if (answer === song.rightAnswer) {
+            score += 1
+        }
+    }
 
     function processGame(currentTime) {
         let tempSong = game.songs.find(song => {
@@ -53,8 +66,32 @@
 
     function videoStateChange({detail}) {
         if (detail.data === 1) {
-            blockVideo = true
+            // blockVideo = true
         }
+        if (detail.data === 0) {
+            end()
+        }
+    }
+
+    function next() {
+        const i = game.songs.findIndex(song => {
+            if (currentTime >= song.guess[0] && currentTime <= song.answer[1]) {
+                return true
+            }
+            return false
+        })
+
+        if (i > -1) {
+            if (i < game.songs.length) {
+                goTo = game.songs[i+1].guess[0]
+            }
+        }
+    }
+
+    function end() {
+        fetch(`/highScore/set?`
+            + new URLSearchParams({userId, score, inlineMessageId, chatId, messageId}))
+            .catch(e => console.log(e))
     }
 
 </script>
@@ -69,7 +106,7 @@
                         <Key key="{game.yt_id}">
                             <Youtube on:timeupdate={({detail}) => currentTime = detail}
                                      on:StateChange={videoStateChange} key="{game.yt_id}" height="100%" width="100%"
-                                     videoId="{game.yt_id}"/>
+                                     videoId="{game.yt_id}" goTo={goTo}/>
                         </Key>
                     </div>
                 </div>
@@ -78,7 +115,7 @@
                 {#if userAnswer === undefined}
                     {#each song.answers as answ}
                         <div class="col-md-6 mt-3">
-                            <button on:click={() => userAnswer = answ} class="btn btn-secondary btn-block btn-lg">{answ}</button>
+                            <button on:click={() => onUserAnswer(answ)} class="btn btn-secondary btn-block btn-lg">{answ}</button>
                         </div>
                     {/each}
                 {:else}
@@ -93,9 +130,13 @@
                         </div>
                         <div class="w-100"></div>
                     {/if}
+                    <div class="col-md-12 mt-3">
+                        <button on:click={() => next()} class="btn btn-secondary btn-block btn-lg">
+                            Перести к следующему вопросу
+                        </button>
+                    </div>
                 {/if}
             {/if}
-            <div class="col-auto mt-3 mx-auto"><a rel=prefetch href="/game/{Number(id) + 1}">Следующий</a></div>
         </div>
     </div>
 {:else}
