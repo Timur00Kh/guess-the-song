@@ -51,3 +51,14 @@ jobs:
           remote_port: 12
           remote_user: developer
           remote_key: ${{ secrets.DEPLOY_KEY }}
+      - name: multiple command
+        uses: appleboy/ssh-action@master
+        with:
+          host: timurkh.ru
+          username: developer
+          key: ${{ secrets.DEPLOY_KEY }}
+          port: 12
+          script: |
+            cd ~/guess-the-song-build
+            pm2 delete guess-the-song || true
+            pm2 start __sapper__/build --name guess-the-song
