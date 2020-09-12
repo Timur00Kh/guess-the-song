@@ -40,12 +40,12 @@ jobs:
         uses: actions/download-artifact@master
         with:
           name: build
-          path: __sapper__/build
+          path: __sapper__
       - name: rsync deployments
         uses: burnett01/rsync-deployments@4.1
         with:
           switches: -avzr --delete
-          path: __sapper__/build static
+          path: __sapper__ static
           remote_path: ~/guess-the-song-build
           remote_host: timurkh.ru
           remote_port: 12
