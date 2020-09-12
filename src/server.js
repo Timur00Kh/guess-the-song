@@ -42,7 +42,7 @@ bot.on('inline_query', ctx => {
 
 bot.action('FirstTest', async ctx => {
 
-	await ctx.answerGameQuery('https://timur00kh.github.io/guess-the-song/game/4')
+	await ctx.answerGameQuery('https://gts.timurkh.ru/game/4')
 })
 
 bot.on('callback_query', ctx => {
@@ -51,7 +51,7 @@ bot.on('callback_query', ctx => {
 	console.log(JSON.stringify(update, null, 2))
 
 	if (update.callback_query.game_short_name === 'FirstTest') {
-		ctx.answerGameQuery('https://timur00kh.github.io/guess-the-song/game/4')
+		ctx.answerGameQuery('https://gts.timurkh.ru/game/4')
 		// ctx.answerGameQuery('http://localhost:3000/guess-the-song/game/4')
 	}
 })

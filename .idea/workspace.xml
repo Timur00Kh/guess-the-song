@@ -21,10 +21,7 @@
   <component name="ChangeListManager">
     <list default="true" id="e5515812-4b50-43c7-b3cf-45e51a75baa0" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/routes/game/[id].json.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/game/[id].json.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/routes/highScore/set.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/highScore/set.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/server.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/telegram/index.js" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -63,7 +60,7 @@
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
-  <component name="RunManager" selected="npm.start">
+  <component name="RunManager" selected="npm.publish">
     <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
@@ -140,10 +137,10 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="npm.start" />
-        <item itemvalue="npm.build" />
-        <item itemvalue="npm.dev" />
         <item itemvalue="npm.publish" />
+        <item itemvalue="npm.build" />
+        <item itemvalue="npm.start" />
+        <item itemvalue="npm.dev" />
         <item itemvalue="npm.export" />
       </list>
     </recent_temporary>
@@ -160,6 +157,7 @@
       <workItem from="1597873881671" duration="6327000" />
       <workItem from="1598102253362" duration="1128000" />
       <workItem from="1599853634006" duration="14136000" />
+      <workItem from="1599880521276" duration="1790000" />
     </task>
     <servers />
   </component>
@@ -191,26 +189,26 @@
       <screen x="1920" y="0" width="2048" height="1112" />
     </state>
     <state x="2811" y="305" key="EnvironmentVariablesDialog/0.0.1536.824/1920.0.2048.1112@1920.0.2048.1112" timestamp="1599878352192" />
-    <state width="2005" height="271" key="GridCell.Tab.0.bottom" timestamp="1599879995756">
+    <state width="2005" height="369" key="GridCell.Tab.0.bottom" timestamp="1599881710709">
       <screen x="1920" y="0" width="2048" height="1112" />
     </state>
     <state width="1493" height="210" key="GridCell.Tab.0.bottom/0.0.1536.824/1920.0.2048.1112@0.0.1536.824" timestamp="1597864353732" />
-    <state width="2005" height="271" key="GridCell.Tab.0.bottom/0.0.1536.824/1920.0.2048.1112@1920.0.2048.1112" timestamp="1599879995756" />
-    <state width="2005" height="271" key="GridCell.Tab.0.center" timestamp="1599879995756">
+    <state width="2005" height="369" key="GridCell.Tab.0.bottom/0.0.1536.824/1920.0.2048.1112@1920.0.2048.1112" timestamp="1599881710709" />
+    <state width="2005" height="369" key="GridCell.Tab.0.center" timestamp="1599881710709">
       <screen x="1920" y="0" width="2048" height="1112" />
     </state>
     <state width="1493" height="210" key="GridCell.Tab.0.center/0.0.1536.824/1920.0.2048.1112@0.0.1536.824" timestamp="1597864353732" />
-    <state width="2005" height="271" key="GridCell.Tab.0.center/0.0.1536.824/1920.0.2048.1112@1920.0.2048.1112" timestamp="1599879995756" />
-    <state width="2005" height="271" key="GridCell.Tab.0.left" timestamp="1599879995756">
+    <state width="2005" height="369" key="GridCell.Tab.0.center/0.0.1536.824/1920.0.2048.1112@1920.0.2048.1112" timestamp="1599881710709" />
+    <state width="2005" height="369" key="GridCell.Tab.0.left" timestamp="1599881710709">
       <screen x="1920" y="0" width="2048" height="1112" />
     </state>
     <state width="1493" height="210" key="GridCell.Tab.0.left/0.0.1536.824/1920.0.2048.1112@0.0.1536.824" timestamp="1597864353732" />
-    <state width="2005" height="271" key="GridCell.Tab.0.left/0.0.1536.824/1920.0.2048.1112@1920.0.2048.1112" timestamp="1599879995756" />
-    <state width="2005" height="271" key="GridCell.Tab.0.right" timestamp="1599879995756">
+    <state width="2005" height="369" key="GridCell.Tab.0.left/0.0.1536.824/1920.0.2048.1112@1920.0.2048.1112" timestamp="1599881710709" />
+    <state width="2005" height="369" key="GridCell.Tab.0.right" timestamp="1599881710709">
       <screen x="1920" y="0" width="2048" height="1112" />
     </state>
     <state width="1493" height="210" key="GridCell.Tab.0.right/0.0.1536.824/1920.0.2048.1112@0.0.1536.824" timestamp="1597864353732" />
-    <state width="2005" height="271" key="GridCell.Tab.0.right/0.0.1536.824/1920.0.2048.1112@1920.0.2048.1112" timestamp="1599879995756" />
+    <state width="2005" height="369" key="GridCell.Tab.0.right/0.0.1536.824/1920.0.2048.1112@1920.0.2048.1112" timestamp="1599881710709" />
     <state width="196" height="457" key="HiddenNamespacesPopup" timestamp="1599861999740">
       <screen x="1920" y="0" width="2048" height="1112" />
     </state>
