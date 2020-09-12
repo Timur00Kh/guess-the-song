@@ -77,7 +77,7 @@ export default {
 			replace({
 				'process.browser': false,
 				'process.env.NODE_ENV': JSON.stringify(mode),
-				'process.env.BOT_TOKEN': process.env.BOT_TOKEN
+				// 'process.env.BOT_TOKEN': process.env.BOT_TOKEN
 			}),
 			svelte({
 				generate: 'ssr',

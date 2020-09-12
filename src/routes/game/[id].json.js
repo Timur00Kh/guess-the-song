@@ -1,5 +1,5 @@
 import { v4 as uuidv4 } from 'uuid';
-import {bot, tg} from "../../server";
+import {bot, tg} from "../../telegram";
 
 const games = [
     {
