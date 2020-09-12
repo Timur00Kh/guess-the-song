@@ -1,4 +1,4 @@
-import {bot, tg} from "../../telegram";
+import {bot, tg} from "../../server";
 
 
 export async function get(req, res, next) {
