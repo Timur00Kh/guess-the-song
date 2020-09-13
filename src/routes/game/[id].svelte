@@ -58,12 +58,13 @@
         if (tempSong.id !== song.id) {
             song = {...tempSong, answers: shuffle(tempSong.answers)}
             userAnswer = undefined
+
+            if (score > 0 && !isNaN(parseInt(score))) {
+                saveScore()
+            }
         }
         if (song.id && currentTime >= song.answer[0] && currentTime <= song.answer[1]) {
             if (!userAnswer) userAnswer = false
-        }
-        if (score > 0 && !isNaN(parseInt(score))) {
-            saveScore()
         }
     }
 
@@ -92,8 +93,10 @@
     }
 
     function saveScore() {
+        const params = {userId, score, inlineMessageId, chatId, messageId}
+        Object.keys(params).forEach(key => (params[key] === undefined || params[key] === "undefined") && delete params[key])
         fetch(`/highScore/set?`
-            + new URLSearchParams({userId, score, inlineMessageId, chatId, messageId}))
+            + new URLSearchParams(params))
             .catch(e => console.log(e))
     }
 
