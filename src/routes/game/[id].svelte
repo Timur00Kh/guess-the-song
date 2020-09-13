@@ -44,6 +44,7 @@
 
         if (answer === song.rightAnswer) {
             score += 1
+            saveScore()
         }
     }
 
@@ -58,10 +59,6 @@
         if (tempSong.id !== song.id) {
             song = {...tempSong, answers: shuffle(tempSong.answers)}
             userAnswer = undefined
-
-            if (score > 0 && !isNaN(parseInt(score))) {
-                saveScore()
-            }
         }
         if (song.id && currentTime >= song.answer[0] && currentTime <= song.answer[1]) {
             if (!userAnswer) userAnswer = false
