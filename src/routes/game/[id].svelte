@@ -11,7 +11,7 @@
         const res = await this.fetch(`game/${id}.json`);
         const data = await res.json();
         return {game: data, id,
-            userId, score, inlineMessageId, chatId, messageId};
+            userId, inlineMessageId, chatId, messageId};
     }
 </script>
 

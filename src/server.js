@@ -2,6 +2,7 @@ import sirv from 'sirv';
 import polka from 'polka';
 import compression from 'compression';
 import * as sapper from '@sapper/server';
+import 'url-search-params-polyfill';
 
 const { PORT, NODE_ENV, BASE_PATH } = process.env;
 const dev = NODE_ENV === 'development';
@@ -51,7 +52,22 @@ bot.on('callback_query', ctx => {
 	console.log(JSON.stringify(update, null, 2))
 
 	if (update.callback_query.game_short_name === 'FirstTest') {
-		ctx.answerGameQuery('https://gts.timurkh.ru/game/4')
+		let chatId, messageId;
+		const {
+			from: {id: userId},
+			inline_message_id: inlineMessageId,
+		} = update.callback_query;
+
+		if (update.callback_query.message) {
+			const {message_id, chat : {id: id}} = update.callback_query.message
+			chatId = id
+			messageId = message_id
+		}
+
+
+		ctx.answerGameQuery('https://gts.timurkh.ru/game/4?' + new URLSearchParams({
+			userId, inlineMessageId, chatId, messageId
+		}))
 		// ctx.answerGameQuery('http://localhost:3000/guess-the-song/game/4')
 	}
 })
