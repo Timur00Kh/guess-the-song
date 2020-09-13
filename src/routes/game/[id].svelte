@@ -62,6 +62,9 @@
         if (song.id && currentTime >= song.answer[0] && currentTime <= song.answer[1]) {
             if (!userAnswer) userAnswer = false
         }
+        if (score > 0 && !isNaN(parseInt(score))) {
+            saveScore()
+        }
     }
 
     function videoStateChange({detail}) {
@@ -69,7 +72,7 @@
             // blockVideo = true
         }
         if (detail.data === 0) {
-            end()
+            saveScore()
         }
     }
 
@@ -88,7 +91,7 @@
         }
     }
 
-    function end() {
+    function saveScore() {
         fetch(`/highScore/set?`
             + new URLSearchParams({userId, score, inlineMessageId, chatId, messageId}))
             .catch(e => console.log(e))
